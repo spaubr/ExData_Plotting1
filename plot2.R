@@ -1,3 +1,5 @@
+setwd("~/")
+# If loop: Check for "data" directory.  Create one if needed.
 if (!file.exists("data")) {
         dir.create("data")
 }
