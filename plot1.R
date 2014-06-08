@@ -25,8 +25,6 @@ data$datetime <- paste0(data$Date, " ", data$Time)
 data$datetime <- as.POSIXct(data$datetime, format = "%d/%m/%Y %H:%M:%S")
 
 # Plot #1
+png(filename = "~/EDA1/plot1.png", width = 480, height = 480)
 hist(data$Global_active_power, col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
-
-# Copy the plot to PNG graphics device 
-dev.copy(png, file = "~/data/plot1.png", width = 480, height = 480)
 dev.off()

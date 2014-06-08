@@ -24,10 +24,7 @@ data <- subset(data, data$Date == "1/2/2007" | data$Date == "2/2/2007")
 data$datetime <- paste0(data$Date, " ", data$Time)
 data$datetime <- as.POSIXct(data$datetime, format = "%d/%m/%Y %H:%M:%S")
 
-
 # Plot #2
+png(filename = "~/EDA1/plot2.png", width = 480, height = 480)
 plot(data$datetime, data$Global_active_power, type = "l", ylab = "Global Active Power (kilowatts)", xlab = "")
-
-# Copy the plot to PNG graphics device 
-dev.copy(png, file = "~/data/plot2.png", width = 480, height = 480)
 dev.off()

@@ -24,8 +24,8 @@ data <- subset(data, data$Date == "1/2/2007" | data$Date == "2/2/2007")
 data$datetime <- paste0(data$Date, " ", data$Time)
 data$datetime <- as.POSIXct(data$datetime, format = "%d/%m/%Y %H:%M:%S")
 
-
 # Plot 4
+png(filename = "~/EDA1/plot4.png", width = 480, height = 480)
 par(mfrow = c(2, 2))
 with(data, {
         hist(data$Global_active_power, col = "red", xlab = "Global Active Power", main = "")
@@ -39,7 +39,4 @@ with(data, {
         
         plot(data$datetime, data$Global_reactive_power, type = "l", ylab = "Global_reactive_power", xlab = "datetime")
 })
-
-# Copy the plot to PNG graphics device 
-dev.copy(png, file = "~/data/plot4.png", width = 480, height = 480)
 dev.off()
